@@ -1,0 +1,5 @@
+package com.java.otp;
+
+public class ValidateOtpServlet {
+
+}

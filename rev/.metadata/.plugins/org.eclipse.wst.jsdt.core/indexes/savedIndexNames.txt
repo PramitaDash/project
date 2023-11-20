@@ -1,0 +1,8 @@
+INDEX VERSION 1.4+D:\INFINITETRAINING\rev\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2745724796.index
+1208335414.index
+1304124572.index
+4293845354.index
+713686139.index
+2102495560.index
+672432988.index

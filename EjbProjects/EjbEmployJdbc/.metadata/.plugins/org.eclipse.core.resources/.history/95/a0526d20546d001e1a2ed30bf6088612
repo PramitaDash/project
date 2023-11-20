@@ -1,0 +1,53 @@
+package com.java.ejb;
+
+import java.util.List;
+
+
+import javax.ejb.Remote;
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class AgentEjbBean
+ */
+@Stateless
+@Remote(AgentEjbBeanRemote.class)
+public class AgentEjbBean implements AgentEjbBeanRemote {
+
+    /**
+     * Default constructor. 
+     */
+    public AgentEjbBean() {
+        // TODO Auto-generated constructor stub
+    }
+
+	@Override
+	public List<Agent> showAgent() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Agent searchAgent(int AgentID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String addAgent(Agent agent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String deleteAgent(int AgentID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String updateAgent(Agent agent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

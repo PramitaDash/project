@@ -1,0 +1,12 @@
+package com.java.ejb;
+
+import java.sql.SQLException;
+
+import javax.naming.NamingException;
+
+public class Dummy {
+
+	public static void main(String[] args) throws InterruptedException {
+		AgentEjbBeanRemote remote = RemoteHelper.lookupRemoteStatelessEmploy();
+	}
+}

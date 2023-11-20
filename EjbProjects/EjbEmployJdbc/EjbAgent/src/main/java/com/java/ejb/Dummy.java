@@ -1,0 +1,25 @@
+package com.java.ejb;
+
+import java.sql.SQLException;
+
+import javax.naming.NamingException;
+
+public class Dummy {
+
+	public static void main(String[] args) throws InterruptedException {
+		try {
+			AgentEjbBeanRemote remote = RemoteHelper.lookupRemoteStatelessEmploy();
+			System.out.println("Remote Connected Successfully...");
+			System.out.println(remote.showAgent().size());
+		} catch (NamingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

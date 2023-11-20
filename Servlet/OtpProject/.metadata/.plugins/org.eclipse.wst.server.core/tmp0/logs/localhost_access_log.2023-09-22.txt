@@ -1,0 +1,7 @@
+127.0.0.1 - - [22/Sep/2023:15:57:40 +0530] "GET / HTTP/1.1" 404 1074
+0:0:0:0:0:0:0:1 - - [22/Sep/2023:15:57:40 +0530] "GET /Otp/Customer.html HTTP/1.1" 200 645
+0:0:0:0:0:0:0:1 - - [22/Sep/2023:15:58:18 +0530] "POST /Otp/CustomerServlet HTTP/1.1" 200 -
+0:0:0:0:0:0:0:1 - - [22/Sep/2023:15:59:07 +0530] "GET /Otp/WEB-INF/classes/com/java/otp/CustomerDAOImpl.java HTTP/1.1" 404 1047
+0:0:0:0:0:0:0:1 - - [22/Sep/2023:15:59:08 +0530] "GET /favicon.ico HTTP/1.1" 404 1085
+0:0:0:0:0:0:0:1 - - [22/Sep/2023:16:43:43 +0530] "GET /Otp/Customer.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [22/Sep/2023:16:43:45 +0530] "GET /favicon.ico HTTP/1.1" 404 1085

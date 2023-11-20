@@ -1,0 +1,118 @@
+package com.java.otp;
+
+
+	import java.sql.Connection;
+
+
+	import java.sql.PreparedStatement;
+	import java.sql.ResultSet;
+	import java.sql.SQLException;
+	import java.util.Date;
+	import java.util.Random;
+
+	public class CustomerDAOImpl implements CustomerDAO {
+		
+		PreparedStatement pst;
+		Connection connection;
+		
+		public static int generateOtp() {
+			Random r = new Random( System.currentTimeMillis() );
+		    return ((1 + r.nextInt(2)) * 10000 + r.nextInt(10000));
+		}
+
+		@Override
+		public String addCustomerDao(Customer customer) throws ClassNotFoundException, SQLException {
+			String userId = customer.getCustomer_UserName();
+			Customer customerFound = searchByUserName(userId);
+			if (customerFound==null) {
+				connection = ConnectionHelper.getConnection();
+				customer.setCustomer_Status("OTP PENDING");
+			connection = ConnectionHelper.getConnection();
+			String pwd = EntryptPassword.getCode(customer.getCustomer_Password());
+			String cmd = "insert into Customer(Cust_ID,customer_Firstname,customer_LastName,customer_UserName,customer_Password,customer_Email,customer_PhoneNo,Customer_Status)"
+					+ "value(?,?,?,?,?,?,?)";
+			PreparedStatement pst = connection.prepareStatement(cmd);
+			pst.setInt(1, customer.getCust_ID());
+			pst.setString(2, customer.getCustomer_Firstname());
+			pst.setString(3, customer.getCustomer_LastName());
+			pst.setString(4, customer.getCustomer_UserName());
+			pst.setString(5, pwd);
+			pst.setString(6, customer.getCustomer_Email());
+			pst.setString(7, customer.getCustomer_PhoneNo());
+			pst.setString(8, customer.getCustomer_Status());
+			pst.executeUpdate();
+					     
+			int otp = generateOtp();
+			Date obj = new Date();
+			java.sql.Date sqlDate = new java.sql.Date(obj.getTime());
+			cmd = "Insert into otp(customer_UserName,otpCode,GeneratedOn) values(?,?,?)";
+			pst = connection.prepareStatement(cmd);
+			pst.setString(1, customer.getCustomer_UserName());
+			pst.setInt(2, otp);
+			pst.setDate(3, sqlDate);
+			pst.executeUpdate();
+			String body ="Welcome to Mr/Miss  " +customer.getCustomer_Firstname() + "\r\n"+
+					"Your OTP Generated Successfully..." +"\r\n" + 
+					"OTP is " +otp;
+			MailSend.mailOtp(customer.getCustomer_Email(), "Otp Send Succesfully...", body);
+			return "User Created Successfully...";
+		} else {
+		// TODO Auto-generated method stub
+		return "User-Name already Exists...";
+		}
+		}
+
+		@Override
+		public Customer searchByUserName(String userName) throws ClassNotFoundException, SQLException {
+			connection = ConnectionHelper.getConnection();
+			String cmd = "select * from Customer where customer_UserName=?";
+			pst = connection.prepareStatement(cmd);
+			pst.setString(1, userName);
+			ResultSet rs = pst.executeQuery();
+			Customer customer = null;
+			if (rs.next()) {
+				customer = new Customer();
+				customer.setCust_ID(rs.getInt("Cust_ID"));
+				customer.setCustomer_Firstname(rs.getString("customer_Firstname"));
+				customer.setCustomer_LastName(rs.getString("customer_LastName"));
+				customer.setCustomer_UserName(rs.getString("customer_UserName"));
+				customer.setCustomer_Password(rs.getString("customer_Password"));
+				customer.setCustomer_Email(rs.getString("customer_Email"));
+				customer.setCustomer_PhoneNo(rs.getString("customer_PhoneNo"));
+				customer.setCustomer_Status(rs.getString("Customer_Status"));
+			}
+			return customer;
+		}
+
+		@Override
+		public String validateOtp(String user, int otpCode) throws ClassNotFoundException, SQLException {
+			connection = ConnectionHelper.getConnection();
+			String cmd = "select count(*) cnt from otp where Customer_UserName=? AND OtpCode=?";
+			pst = connection.prepareStatement(cmd);
+			pst.setString(1, user);
+			pst.setInt(2, otpCode);
+			ResultSet rs = pst.executeQuery();
+			rs.next();
+			int count = rs.getInt("cnt");
+			Customer customer  = searchByUserName(user);;
+			if (count==1) {
+				
+				MailSend.mailOtp(customer.getCustomer_Email(), "Otp Verified Successfully...", "You Can Use the Account Now...");
+				cmd = "Update Customer set Customer_Status=? WHERE customer_UserName=?";
+				pst = connection.prepareStatement(cmd);
+				pst.setString(1, "ACTIVE");
+				pst.setString(2, user);
+				pst.executeUpdate();
+				return "OTP Verified Account Active...";
+			}
+			MailSend.mailOtp(customer.getCustomer_Email(), "Otp is wrong...", "Please Provider Proper Details...");
+			return "Invalid Otp or UserName details provided...";
+		}
+		}
+
+		
+		
+		
+
+
+

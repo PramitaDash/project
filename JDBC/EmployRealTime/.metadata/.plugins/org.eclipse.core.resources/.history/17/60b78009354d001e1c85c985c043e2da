@@ -1,0 +1,31 @@
+package infinite.JDBCW;
+
+import java.util.Scanner;
+
+public class EmployInsert {
+	
+	public static void main(String[] args) {
+		int empno;
+		String name, gender, dept, desig;
+		double basic;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter employ number: ");
+		empno = sc.nextInt();
+		System.out.println("Enter employ name: ");
+		name = sc.next();
+		System.out.println("Enter gender(MALE/FEMALE)");
+		gender=sc.next();
+		System.out.println("Enter department: ");
+		dept=sc.next();
+		System.out.println("Enter designation: ");
+		desig= sc.next();
+		System.out.println("Enter basic: ");
+		basic= sc.nextDouble();
+		Class.forName("com.mysql.cj.jdbc.Driver");
+
+	}
+	
+		
+	
+
+}

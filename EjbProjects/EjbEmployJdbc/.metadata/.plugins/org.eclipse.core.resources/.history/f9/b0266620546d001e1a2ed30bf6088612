@@ -1,0 +1,15 @@
+package com.java.ejb;
+
+import java.util.List;
+
+import javax.ejb.Remote;
+
+@Remote
+public interface AgentEjbBeanRemote {
+	List<Agent> showAgent();
+	Agent searchAgent(int AgentID);
+	String addAgent(Agent agent);
+	String deleteAgent(int AgentID);
+	String updateAgent(Agent agent);
+
+}

@@ -1,0 +1,25 @@
+package com.java.employ;
+
+import java.util.List;
+
+public class EmployBAL {
+	
+	static StringBuilder sb;
+	static EmployDAO dao;
+	static {
+		sb = new StringBuilder();
+		dao = new EmployDaoImpl();
+	}
+	
+	public List<Employ> showEmployBal(){
+		return dao.showEmployDao();
+	}
+	
+	public String addEmployBal(Employ employ) {
+		if (validateEmploy(employ)==true) {
+			return dao.addEmplyDao(employ);
+		}
+		throw new EmployException(sb.toString());
+	}
+
+}

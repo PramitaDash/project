@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.ejb.Remote"/>
+    <fullyQualifiedTypeName name="javax.faces.event.ActionEvent"/>
+    <fullyQualifiedTypeName name="javax.enterprise.context.spi.Context"/>
+    <fullyQualifiedTypeName name="javax.naming.Context"/>
+    <fullyQualifiedTypeName name="javax.naming.InitialContext"/>
+    <fullyQualifiedTypeName name="java.util.Properties"/>
+</qualifiedTypeNameHistroy>

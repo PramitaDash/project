@@ -1,0 +1,5 @@
+package infinite.Employrealtime;
+
+public interface EmployDAO {
+
+}

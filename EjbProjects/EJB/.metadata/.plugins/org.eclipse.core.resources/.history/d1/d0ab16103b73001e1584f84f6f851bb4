@@ -1,0 +1,47 @@
+package com.java.ejb;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+	@Entity
+	@Table(name="insurance_details")
+	public class InsuranceDetails implements Serializable{
+		
+	@Id
+	@GeneratedValue
+	
+
+	@Column(name="insuranceId")
+	private String insuranceId;
+
+	@Column(name="insuranceName")
+	private String insuranceName;
+
+	@Column(name="insuranceType")
+	private String insuranceType;
+
+	@Column(name="premiumStart")
+	private String premiumStart;
+
+	@Column(name="premiumEnd")
+	private String premiumEnd;
+
+	@Column(name="minPeriod")
+	private String minPeriod;
+
+	@Column(name="maxPeriod")
+	private String maxPeriod;
+
+	@Column(name="launchDate")
+	private Date launchDate;
+
+	@Column(name="status")
+	private String status;
+
+}

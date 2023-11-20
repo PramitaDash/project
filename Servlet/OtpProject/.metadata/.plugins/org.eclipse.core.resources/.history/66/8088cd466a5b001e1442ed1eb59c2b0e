@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form method="post" action="AddCustomer.html">
+		<center>
+			Firstname:
+			<input type="text" name="fisrtname"/><br/><br/>
+			Lastname:
+			<input type="text" name="lastname"/><br/><br/>
+			User Name:
+			<input type="text" name="userName"/><br/><br/>
+			Password:
+			<input type="password" name="passWord"/><br/><br/>
+			ReType Password :
+			<input type="password" name="retypePassword"/><br/><br/>
+			Email:
+			<input type="email" name="email"/><br/><br/>
+			PhoneNo:
+			<input type="text" name="PhoneNo"/><br/><br/>
+			<input type="submit" value="Create Account"/>
+		</center>
+	</form>
+	
+</body>
+</html>

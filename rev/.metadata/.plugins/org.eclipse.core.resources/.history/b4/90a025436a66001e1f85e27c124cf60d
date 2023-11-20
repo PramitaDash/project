@@ -1,0 +1,8 @@
+package com.java.Demo2;
+
+public class Answer {
+	id;
+	answername;
+	pos
+
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.naming.NamingException"/>
+    <fullyQualifiedTypeName name="java.util.Map"/>
+    <fullyQualifiedTypeName name="javax.faces.context.FacesContext"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="javax.ejb.Remote"/>
+    <fullyQualifiedTypeName name="com.java.ejb.AgentEjbImpl"/>
+    <fullyQualifiedTypeName name="com.java.ejb.AgentEjbBeanRemote"/>
+    <fullyQualifiedTypeName name="com.java.ejb.RemoteHelper"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+</qualifiedTypeNameHistroy>

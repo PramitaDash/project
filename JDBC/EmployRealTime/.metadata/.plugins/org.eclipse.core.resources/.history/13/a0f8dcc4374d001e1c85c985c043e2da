@@ -1,0 +1,8 @@
+package infinite.JDBCW;
+
+public class EmployDelete {
+
+	public static void main(String[] args) {
+		int empno;
+	}
+}

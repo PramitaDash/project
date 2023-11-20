@@ -1,0 +1,5 @@
+package infinite.JDBCW;
+
+public class UserAuth {
+
+}
